@@ -16,23 +16,26 @@ const Nav = () => {
   }
 
   return (
-    <div class="navigation">
-      <a href="/" style={{"color": "rgb(64, 29, 221)"}}>About Me</a>
-      <a href="/resume" style={{"color": "rgb(64, 29, 221)"}}>Resume</a>
-      <a href="/portfolio" style={{"color": "rgb(64, 29, 221)"}}>Portfolio</a>
-      <a href="/contact" style={{"color": "rgb(64, 29, 221)"}}>Contact</a>
-      {checkLoggedIn() ?
-        <React.Fragment>
-         <a href="#" style={{"color": "rgb(64, 29, 221)", 'float': 'right'}} onClick={() => handleLogout()}>Logout</a>
-         <a href="/inquiry" style={{"color": "rgb(64, 29, 221)", 'float': 'right'}}>Admin Page</a>
+      <nav>
+        <ul>
+          <li><a href="/">About Me</a></li>
+          <li><a href="/resume" >Resume</a></li>
+          <li><a href="/portfolio">Portfolio</a></li>
+          <li><a href="/contact">Contact</a></li>
+          {checkLoggedIn() ?
+            <React.Fragment>
 
-        </React.Fragment>
-         :
-         <React.Fragment>
-         <a href="/login" style={{"color": "rgb(64, 29, 221)", 'float': 'right'}}>Login</a>
-         </React.Fragment>
-       }
-    </div>
+             <li><a href="/inquiry">Admin Page</a></li>
+             <li><a href="#" onClick={() => handleLogout()}>Logout</a></li>
+
+            </React.Fragment>
+             :
+             <React.Fragment>
+             <li><a href="/login">Login</a></li>
+             </React.Fragment>
+           }
+        </ul>
+      </nav>
   )
 }
 

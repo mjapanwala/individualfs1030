@@ -9,10 +9,10 @@
 
 const Form = () => {
 
-    const [ firstName, setFirstName ] = React.useState('James')
-    const [ lastName, setLastName ] = React.useState('Bond')
-    const [ email, setEmail ] = React.useState('email@test.com')
-    const [ message, setMessage ] = React.useState('Hello world')
+    const [ firstName, setFirstName ] = React.useState('')
+    const [ lastName, setLastName ] = React.useState('')
+    const [ email, setEmail ] = React.useState('')
+    const [ message, setMessage ] = React.useState('')
 
     const [showMessage, setShowMessage] = React.useState('none')
 
@@ -78,7 +78,9 @@ const Form = () => {
 
 
     return (
+      <div class="container2">
         <form>
+
             {showMessage === 'success' &&
                 <p style={{color: 'green'}}>Message successful</p>
             }
@@ -87,24 +89,21 @@ const Form = () => {
                 <p style={{color: 'red'}}>Message failed. Try again later</p>
             }
 
-                <ul class="form-style-1">
-                    <li><label>Full Name <span class="required">*</span></label>
-                    <input type="text" name="firstName" class="field-divided" placeholder="First" onChange={handleUpdate} value={firstName}/>
-                    <input type="text" name="lastName" class="field-divided" placeholder="Last" onChange={handleUpdate} value={lastName} /></li>
-                    <li>
-                        <label>Email <span class="required">*</span></label>
-                        <input type="email" name="email" class="field-long" placeholder="Email" onChange={handleUpdate} value={email} />
-                    </li>
+            <label>First Name</label>
+            <input type="text" name="firstName" class="field-divided" placeholder="First Name" onChange={handleUpdate} value={firstName}/>
 
-                    <li>
-                        <label>Your Message <span class="required">*</span></label>
-                        <textarea name="message" id="field5" class="field-long field-textarea" placeholder="Your message" value={message} onChange={handleUpdate}>{message}</textarea>
-                    </li>
-                    <li>
-                        <input onClick={handleSubmit} type="submit" value="Submit" />
-                    </li>
-                </ul>
-                </form>
+            <label>Last Name</label>
+            <input type="text" name="lastName" class="field-divided" placeholder="Last Name" onChange={handleUpdate} value={lastName} />
+
+            <label>Email</label>
+            <input type="email" name="email" class="field-long" placeholder="Email" onChange={handleUpdate} value={email} />
+
+            <label>Inquiry</label>
+            <textarea name="message" style={{height:"200px"}} id="field5" class="field-long field-textarea" placeholder="Your message" value={message} onChange={handleUpdate}>{message}</textarea>
+
+            <input onClick={handleSubmit} type="submit" value="Submit" />
+        </form>
+      </div>
     )
 }
 
